@@ -62,6 +62,7 @@ bindsym $mod+Shift+n exec light -S 1
 bindsym $mod+d exec light -A 2
 bindsym $mod+b exec light -U 2
 bindsym $mod+n exec light -S 10
+bindsym $mod+Shift+s exec io.elementary.switchboard
 
 # start dmenu (a program launcher)
 bindsym $mod+p exec dmenu_run
