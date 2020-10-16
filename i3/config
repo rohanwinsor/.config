@@ -59,8 +59,8 @@ bindsym $mod+Shift+h exec chromium-browser
 bindsym $mod+Shift+i exec jupyter-lab --notebook-dir=$PWD  
 bindsym $mod+Shift+p exec shutter --full 
 bindsym $mod+Shift+n exec light -S 1
-bindsym $mod+d exec light -A 2
-bindsym $mod+b exec light -U 2
+bindsym $mod+b exec light -A 2
+bindsym $mod+d exec light -U 2
 bindsym $mod+n exec light -S 10
 bindsym $mod+Shift+s exec io.elementary.switchboard
 
