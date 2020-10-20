@@ -106,7 +106,11 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-
+bindsym $mod+Shift+d   layout splitv;\
+                       move left;\
+                       resize grow right 20 px or 20 ppt;\
+                       split v;\
+                       layout stacking
 # Lock screen
 bindsym $mod+e exit 
 
@@ -188,3 +192,11 @@ bar {
 }
 exec_always kitty
 exec feh --bg-scale  /home/rohan/Pictures/wp4407266.jpg
+exec --no-startup-id  $HOME/.config/i3/i3-master-stack/i3-master
+
+# swap to master node
+bindsym $mod+m nop swap master 
+# go to master node
+bindsym $mod+shift+m nop go master 
+# enable/disable master layout in current workspace
+bindsym $mod+alt+m nop master toggle
