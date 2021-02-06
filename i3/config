@@ -32,10 +32,9 @@ floating_modifier $mod
 
 # #---Basic Definitions---# #
 set $inner_gaps 15
-set $outer_gaps 15
+set $outer_gaps 1
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
-set $stoprec --no-startup-id dmenurecord kill
 set $shutdown sudo -A shutdown -h now
 set $reboot sudo -A reboot
 set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
@@ -65,7 +64,7 @@ bindsym $mod+n exec light -S 10
 bindsym $mod+Shift+s exec io.elementary.switchboard
 
 # start dmenu (a program launcher)
-bindsym $mod+space exec dmenu_run
+bindsym $mod+space exec rofi -show drun 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -101,7 +100,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -195,8 +194,8 @@ exec feh --bg-scale  /home/rohan/Pictures/wp4407266.jpg
 exec --no-startup-id  $HOME/.config/i3/i3-master-stack/i3-master
 
 # swap to master node
-bindsym $mod+m nop swap master 
+# bindsym $mod+m nop swap master 
 # go to master node
-bindsym $mod+shift+m nop go master 
+# bindsym $mod+shift+m nop go master 
 # enable/disable master layout in current workspace
-bindsym $mod+alt+m nop master toggle
+# bindsym $mod+alt+m nop master toggle
