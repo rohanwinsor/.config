@@ -32,7 +32,7 @@ floating_modifier $mod
 
 # #---Basic Definitions---# #
 set $inner_gaps 15
-set $outer_gaps 1
+set $outer_gaps 15
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
 set $shutdown sudo -A shutdown -h now
@@ -73,7 +73,6 @@ bindsym $mod+space exec rofi -show drun
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -100,7 +99,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+m fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -111,10 +110,11 @@ bindsym $mod+Shift+d   layout splitv;\
                        split v;\
                        layout stacking
 # Lock screen
-bindsym $mod+e exit 
+bindsym $mod+l exit 
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -148,7 +148,8 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-assign [class="Chromium-browser"] $workspace2
+assign [class="Firefox"] $workspace2
+assign [class="Brave"] $workspace2
 assign [class="Code"] $workspace3
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -189,13 +190,12 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
-exec_always kitty
-exec feh --bg-scale  /home/rohan/Pictures/wp4407266.jpg
+exec feh --bg-scale /home/rohan-w/Downloads/j0P2wZ.jpg
 exec --no-startup-id  $HOME/.config/i3/i3-master-stack/i3-master
 
 # swap to master node
-# bindsym $mod+m nop swap master 
+bindsym $mod+m nop swap master 
 # go to master node
-# bindsym $mod+shift+m nop go master 
+bindsym $mod+shift+m nop go master 
 # enable/disable master layout in current workspace
-# bindsym $mod+alt+m nop master toggle
+bindsym $mod+alt+m nop master toggle
