@@ -1,9 +1,9 @@
 set encoding=utf-8
 
-set number 
+set number      
 
-syntax enable
-set noswapfile
+syntax enable   
+set noswapfile  
 set scrolloff=20
 set backspace=indent,eol,start
 
@@ -16,29 +16,32 @@ set fileformat=unix
 let mapleader = ' '
 
 call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'liuchengxu/vim-which-key'
 Plug 'vifm/vifm.vim'
+Plug 'preservim/nerdtree'
 
-" Color Scheme 
+" Color Scheme
 Plug 'morhetz/gruvbox'
 set bg=dark
 
 " NERDCommenter
-nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+nmap <C-/> <Plug>NERDCommenterToggle
+vmap <C-c> <Plug>NERDCommenterToggle<CR>gv
+nmap <C-b> :NERDTreeToggle<CR>
 
 
-" vifm 
+" vifm
 map <Leader>vv : Vifm<CR>
 map <Leader>vs : VsplitVifm<CR>
 map <Leader>sv : SplitVifm<CR>
 map <Leader>dv : DiffVifm<CR>
 map <Leader>tv : TabVifm<CR>
 
-" Just Some tab movements 
+" Just Some tab movements
 map <Leader>1 1gt<CR>
 map <Leader>2 2gt<CR>
 map <Leader>3 3gt<CR>
