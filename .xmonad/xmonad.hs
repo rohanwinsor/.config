@@ -254,6 +254,7 @@ myStartupHook = return ()
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
+    xmproc2 <- spawnPipe "xloadimage -onroot -fit ~/Downloads/Black_Box.png"
     xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc"
     xmonad $ docks defaults
 
