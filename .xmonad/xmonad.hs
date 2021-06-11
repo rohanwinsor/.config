@@ -72,7 +72,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_space     ), spawn "gmrun")
 
     -- close focused window
-    , ((modm .|. shiftMask, xK_c     ), kill)
+    , ((modm .|. shiftMask, xK_q    ), kill)
 
      -- Rotate through the available layout algorithms
     , ((modm,               xK_p ), sendMessage NextLayout)
@@ -89,9 +89,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Move focus to the next window
     , ((modm,               xK_j     ), windows W.focusDown)
 
-    -- Move focus to the previous window
-    , ((modm,               xK_k     ), windows W.focusUp  )
-
     -- Move focus to the master window
     , ((modm,               xK_m     ), windows W.focusMaster  )
 
@@ -101,8 +98,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
 
-    -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
     -- Shrink the master area
     , ((modm,               xK_h     ), sendMessage Shrink)
@@ -126,10 +121,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
-    , ((modm , xK_q     ), io (exitWith ExitSuccess))
+    , ((modm .|. shiftMask , xK_l     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
-    , ((modm  .|. shiftMask,xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+    , ((modm  .|. shiftMask,xK_r     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
