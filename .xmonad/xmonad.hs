@@ -13,6 +13,7 @@ import XMonad.Util.Run
 import Data.Monoid
 import System.Exit
 import XMonad.Layout.Gaps
+import XMonad.Layout.Spacing
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -145,7 +146,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
+        | (key, sc) <- zip [xK_e, xK_w, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
@@ -179,19 +180,8 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
-  where
-     -- default tiling algorithm partitions the screen into two panes
-     tiled   = Tall nmaster delta ratio
-
-     -- The default number of windows in the master pane
-     nmaster = 1
-
-     -- Default proportion of screen occupied by master pane
-     ratio   = 1/2
-
-     -- Percent of screen to increment by when resizing panes
-     delta   = 3/100
+myLayout = spacingRaw True (Border 10 10 10 10) True (Border 10 10 10 10) True $
+           layoutHook def
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -249,7 +239,7 @@ myStartupHook = return ()
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-    xmproc2 <- spawnPipe "xloadimage -onroot -fit ~/Downloads/Black_Box.png"
+    xmproc2 <- spawnPipe "xloadimage -onroot -fit /home/ahnorr/Pictures/wallpapers/0224.jpg"
     xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc"
     xmonad $ docks defaults
 
@@ -332,4 +322,5 @@ help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "mod-button1  Set the window to floating mode and move by dragging",
     "mod-button2  Raise the window to the top of the stack",
     "mod-button3  Set the window to floating mode and resize by dragging"]
+
 
