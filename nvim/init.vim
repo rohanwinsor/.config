@@ -22,4 +22,5 @@ colorscheme base16-default-dark
 " custom mapping
 let mapleader = " "
 map <leader>p :Files<CR>
-map <leader>r :echo system('python3 "' . expand('%') . '"')<cr>
+map <leader>r :sp <CR> :term python %<CR>
+map <leader>q :bd!<CR>
