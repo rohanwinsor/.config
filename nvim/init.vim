@@ -24,3 +24,5 @@ let mapleader = " "
 map <leader>p :Files<CR>
 map <leader>r :sp <CR> :term python %<CR>
 map <leader>q :bd!<CR>
+vmap <Tab> >gv
+vmap <S-Tab> <gv
